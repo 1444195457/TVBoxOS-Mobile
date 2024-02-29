@@ -1,4 +1,4 @@
-package com.github.tvbox.osc.api;
+包com.github.tvbox.osc.api；
 
 import android.app.Activity;
 import android.net.Uri;
@@ -7,33 +7,33 @@ import android.util.Base64;
 
 import com.github.catvod.crawler.JarLoader;
 import com.github.catvod.crawler.JsLoader;
-import com.github.catvod.crawler.Spider;
-import com.github.tvbox.osc.base.App;
-import com.github.tvbox.osc.bean.LiveChannelGroup;
-import com.github.tvbox.osc.bean.IJKCode;
-import com.github.tvbox.osc.bean.LiveChannelItem;
-import com.github.tvbox.osc.bean.ParseBean;
-import com.github.tvbox.osc.bean.SourceBean;
-import com.github.tvbox.osc.server.ControlManager;
-import com.github.tvbox.osc.util.AES;
-import com.github.tvbox.osc.util.AdBlocker;
-import com.github.tvbox.osc.util.DefaultConfig;
-import com.github.tvbox.osc.util.HawkConfig;
-import com.github.tvbox.osc.util.MD5;
-import com.github.tvbox.osc.util.VideoParseRuler;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.lzy.okgo.OkGo;
-import com.lzy.okgo.callback.AbsCallback;
-import com.lzy.okgo.model.Response;
-import com.orhanobut.hawk.Hawk;
+import导入com.github.catvod.crawler.Spider；
+import导入com.github.tvbox.osc.base.App；
+import导入 com.github.tvbox.osc.bean.LiveChannelGroup;
+import导入 com.github.tvbox.osc.bean.IJKCode；
+import导入 com.github.tvbox.osc.bean.LiveChannelItem;
+import导入 com.github.tvbox.osc.bean.ParseBean;
+import导入 com.github.tvbox.osc.bean.SourceBean;
+import导入 com.github.tvbox.osc.server.ControlManager;
+import导入 com.github.tvbox.osc.util.AES;
+import导入 com.github.tvbox.osc.util.AdBlocker；
+import导入 com.github.tvbox.osc.util.DefaultConfig;
+import导入 com.github.tvbox.osc.util.HawkConfig;
+import导入 com.github.tvbox.osc.util.MD5;
+import导入 com.github.tvbox.osc.util.VideoParseRuler;
+import导入com.google.gson.Gson；
+import导入 com.google.gson.JsonArray；
+import导入 com.google.gson.JsonElement；
+import导入 com.google.gson.JsonObject；
+import导入 com.lzy.okgo.OkGo;
+import导入 com.lzy.okgo.callback.AbsCallback;
+import导入 com.lzy.okgo.model.Response;
+import导入 com.orhanobut.hawk.Hawk;
 
-import org.apache.commons.lang3.StringUtils;
-import org.json.JSONObject;
+import导入 org.apache.commons.lang3.StringUtils;
+import导入 org.json.JSONObject；
 
-import java.io.BufferedReader;
+import导入 java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -104,8 +104,8 @@ public class ApiConfig {
                 content = new String(AES.toBytes(content)).toLowerCase();
                 String key = AES.rightPadding(content.substring(content.indexOf("$#") + 2, content.indexOf("#$")), "0", 16);
                 String iv = AES.rightPadding(content.substring(content.length() - 13), "0", 16);
-                json = AES.CBC(data, key, iv);
-            }else if (configKey !=null && !AES.isJson(content)) {
+                json = AES. CBC （数据、密钥、iv ）；
+            } else  if  ( configKey != null && ! AES.isJson ( content ) )  {
                 json = AES.ECB(content, configKey);
             }
             else{
@@ -128,7 +128,7 @@ public class ApiConfig {
     }
 
     public void loadConfig(boolean useCache, LoadConfigCallback callback, Activity activity) {
-        String apiUrl = Hawk.get(HawkConfig.API_URL, "");
+        String apiUrl = Hawk.get(HawkConfig.API_URL, "https://www.饭太硬.top/");
         if (apiUrl.isEmpty()) {
             callback.error("-1");
             return;
