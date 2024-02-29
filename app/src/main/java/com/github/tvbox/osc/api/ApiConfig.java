@@ -128,7 +128,7 @@ public class ApiConfig {
     }
 
     public void loadConfig(boolean useCache, LoadConfigCallback callback, Activity activity) {
-        String apiUrl = Hawk.get(HawkConfig.API_URL, "https://www.饭太硬.top/");
+        String apiUrl = Hawk.get(HawkConfig.API_URL, "http://肥猫.live");
         if (apiUrl.isEmpty()) {
             callback.error("-1");
             return;
